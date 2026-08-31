@@ -6,10 +6,10 @@
 <title>Alif Satyananda — Portofolio Pribadi</title>
 <meta name="description" content="Portofolio pribadi Alif Satyananda — Web Developer, Designer, dan Content Creator. Dibuat untuk penugasan KPP Basic Media Schooling Visiora 2026.">
 
-<!-- Google Fonts: Fraunces (display/serif), Inter (body), Space Mono (label/utility) -->
+<!-- Google Fonts: Inter (body + bold display), Space Mono (label/utility) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
   /* ==========================================================================
@@ -38,26 +38,26 @@
      2. DESIGN TOKENS — ganti nilai di sini untuk mengubah tema warna & tipografi
      ========================================================================== */
   :root {
-    /* Warna dasar (dark / cosmic theme) */
-    --void: #09080f;         /* latar belakang utama */
-    --nebula: #120f1e;       /* latar belakang seksi selang-seling */
-    --surface: #18152672;    /* kartu (dengan sedikit transparansi) */
-    --surface-solid: #191527;
-    --line: #2b2740;         /* garis/border halus */
+    /* Warna dasar (dark theme, hitam pekat) */
+    --void: #000000;         /* latar belakang utama — hitam pekat */
+    --nebula: #030303;       /* latar belakang seksi selang-seling */
+    --surface: #0a0e1572;    /* kartu (dengan sedikit transparansi) */
+    --surface-solid: #0b0e13;
+    --line: #1c2430;         /* garis/border halus */
 
-    /* Aksen (indigo → cyan) */
-    --comet: #7c6ff5;
-    --comet-light: #a89bff;
-    --aurora: #48d9e6;
-    --gradient-main: linear-gradient(135deg, var(--comet) 0%, var(--aurora) 100%);
+    /* Aksen (biru) */
+    --comet: #3d9dff;
+    --comet-light: #7cc0ff;
+    --aurora: #5cacff;
+    --gradient-main: linear-gradient(135deg, var(--comet) 0%, var(--comet-light) 100%);
 
     /* Teks */
-    --stardust: #f5f3fb;     /* teks utama */
-    --dust: #a29dc0;         /* teks sekunder / muted */
-    --dust-dim: #6d6890;     /* teks tersier */
+    --stardust: #f5f7fa;     /* teks utama */
+    --dust: #9aa3b0;         /* teks sekunder / muted */
+    --dust-dim: #5d6470;     /* teks tersier */
 
     /* Tipografi */
-    --font-display: 'Fraunces', Georgia, serif;
+    --font-display: 'Inter', -apple-system, sans-serif;
     --font-body: 'Inter', -apple-system, sans-serif;
     --font-mono: 'Space Mono', 'Courier New', monospace;
 
@@ -105,10 +105,11 @@
 
   .section-title {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 800;
     font-size: clamp(2rem, 4vw, 2.75rem);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
     margin-bottom: 16px;
   }
 
@@ -119,8 +120,7 @@
   }
 
   .accent-italic {
-    font-style: italic;
-    font-weight: 400;
+    font-weight: 800;
     background: var(--gradient-main);
     -webkit-background-clip: text;
     background-clip: text;
@@ -161,14 +161,15 @@
   }
   .btn-primary {
     background: var(--gradient-main);
-    color: #0a0912;
+    color: var(--void);
+    font-weight: 800;
   }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -10px rgba(124, 111, 245, .55); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -10px rgba(61, 157, 255, .5); }
   .btn-ghost {
     border: 1px solid var(--line);
     color: var(--stardust);
   }
-  .btn-ghost:hover { border-color: var(--comet-light); background: rgba(124,111,245,.08); transform: translateY(-3px); }
+  .btn-ghost:hover { border-color: var(--comet-light); background: rgba(61, 157, 255, .08); transform: translateY(-3px); }
 
   /* Latar bintang (signature ambient element) */
   #starfield {
@@ -192,13 +193,13 @@
     display: flex;
     align-items: center;
     z-index: 100;
-    background: rgba(9, 8, 15, 0.35);
+    background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid transparent;
     transition: background .35s var(--ease), border-color .35s var(--ease), backdrop-filter .35s var(--ease);
   }
   .navbar.is-scrolled {
-    background: rgba(9, 8, 15, 0.82);
+    background: rgba(0, 0, 0, 0.82);
     backdrop-filter: blur(14px);
     border-bottom-color: var(--line);
   }
@@ -206,6 +207,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: none;
+    width: 100%;
+    padding-inline: 40px;
   }
 
   .brand {
@@ -213,7 +217,7 @@
     align-items: center;
     gap: 10px;
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 800;
     font-size: 1.15rem;
     letter-spacing: -0.01em;
   }
@@ -222,7 +226,7 @@
     border-radius: 50%;
     background: var(--gradient-main);
     display: flex; align-items: center; justify-content: center;
-    color: #0a0912;
+    color: var(--void);
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 13px;
@@ -284,11 +288,26 @@
      5. HERO
      ========================================================================== */
   .hero {
+    position: relative;
     min-height: 100svh;
     display: flex;
     align-items: center;
     padding-top: var(--nav-h);
     padding-block: 60px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 900px;
+    max-width: 140vw;
+    aspect-ratio: 1 / 1;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(61, 157, 255, 0.22) 0%, rgba(61, 157, 255, 0.08) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
   }
   .hero .container {
     display: grid;
@@ -318,10 +337,10 @@
 
   .hero h1 {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 900;
     font-size: clamp(2.4rem, 5.6vw, 4rem);
-    line-height: 1.08;
-    letter-spacing: -0.015em;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     margin-bottom: 18px;
   }
 
@@ -341,7 +360,6 @@
     height: 32px;
     line-height: 32px;
   }
-  .hero-role-track span::before { content: "// "; color: var(--dust-dim); }
 
   .hero p.desc {
     color: var(--dust);
@@ -450,8 +468,8 @@
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 20px;
   }
-  .skill-icon svg { width: 24px; height: 24px; color: #0a0912; }
-  .skill-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
+  .skill-icon svg { width: 24px; height: 24px; color: var(--void); }
+  .skill-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
   .skill-card p { color: var(--dust); font-size: 0.92rem; margin-bottom: 18px; }
 
   .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -496,9 +514,9 @@
     overflow: hidden;
   }
   .project-thumb svg { width: 34%; height: 34%; opacity: .5; }
-  .thumb-1 { background: linear-gradient(135deg, #392f6b, #1c1730); }
-  .thumb-2 { background: linear-gradient(135deg, #1d3a4a, #17182c); }
-  .thumb-3 { background: linear-gradient(135deg, #4a2f5e, #1c1730); }
+  .thumb-1 { background: linear-gradient(135deg, #14304f, #0a0e15); }
+  .thumb-2 { background: linear-gradient(135deg, #0f2d40, #0c1215); }
+  .thumb-3 { background: linear-gradient(135deg, #1a2b52, #0e1015); }
 
   .project-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
   .project-cat {
@@ -508,7 +526,7 @@
     text-transform: uppercase;
     color: var(--aurora);
   }
-  .project-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; }
+  .project-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; }
   .project-card p.excerpt { color: var(--dust); font-size: 0.92rem; flex: 1; }
 
   .project-detail-btn {
@@ -529,7 +547,7 @@
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(6, 5, 12, 0.72);
+    background: rgba(0, 0, 0, 0.72);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
@@ -567,7 +585,7 @@
   .modal-close:hover { border-color: var(--comet-light); transform: rotate(90deg); }
   .modal-close svg { width: 16px; height: 16px; }
 
-  .modal-box h3 { font-family: var(--font-display); font-size: 1.6rem; margin: 6px 0 4px; clear: both; }
+  .modal-box h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; margin: 6px 0 4px; clear: both; }
   .modal-cat { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--aurora); }
   .modal-box p { color: var(--dust); margin-top: 16px; font-size: 0.96rem; }
   .modal-box .tag-list { margin-top: 18px; }
@@ -625,7 +643,7 @@
     padding: 32px;
     height: fit-content;
   }
-  .contact-info h3 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 12px; }
+  .contact-info h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; margin-bottom: 12px; }
   .contact-info p { color: var(--dust); margin-bottom: 24px; font-size: 0.95rem; }
 
   .social-list { display: flex; flex-direction: column; gap: 12px; }
@@ -714,7 +732,7 @@
       left: 0; right: 0;
       flex-direction: column;
       align-items: stretch;
-      background: rgba(9, 8, 15, 0.97);
+      background: rgba(0, 0, 0, 0.97);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
       padding: 12px 24px 28px;
@@ -734,6 +752,7 @@
 
   @media (max-width: 640px) {
     .container { padding-inline: 20px; }
+    .navbar .container { padding-inline: 20px; }
     .hero { padding-block: 40px; }
     .about, .skills, .projects, .contact { padding-block: 80px; }
     .skills-grid { grid-template-columns: 1fr; }
@@ -1310,7 +1329,7 @@
       stars.forEach(s => {
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245, 243, 251, ${0.5})`;
+        ctx.fillStyle = `rgba(226, 236, 255, ${0.5})`;
         ctx.fill();
       });
     }
@@ -1322,7 +1341,7 @@
         const a = Math.abs(Math.sin(s.alpha));
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245, 243, 251, ${a})`;
+        ctx.fillStyle = `rgba(226, 236, 255, ${a})`;
         ctx.fill();
       });
       requestAnimationFrame(animate);
